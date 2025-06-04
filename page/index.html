@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>节能文旅线路</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        
+        /* 主页背景图样式 */
+        #main-page {
+            background: url('image/map.jpg') no-repeat center center;
+            background-size: contain;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+        
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* 导航按钮样式 
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 300px;
+        }
+        
+        .nav-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #4a6bff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .nav-button:active {
+            transform: translateY(0);
+        }*/
+
+        button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        button img {
+            width: 55px;
+            height: auto;
+            transition: transform 0.2s;
+        }
+
+        button:hover  {
+            transform: scale(1.1);
+        }
+
+        button:active  {
+            transform: scale(0.9);
+        }
+        
+        .lines {
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column; 
+            align-items: center;      
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            transform:none;
+            line-height: 2.5em;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lines button {
+            margin-bottom: 5px;
+            color: #ffffff;
+            background-color: #4CAF50;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 2px solid #4CAF50;
+            border-radius: 10px; 
+            user-select: none;
+        }
+        
+        .lines button:hover  {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .lines button:active  {
+            background-color: #3d8b40;
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /*bottom: 220px;*/
+        .button-1 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 38%;
+            right: 13%;
+        }
+        .button-2 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 30%;
+            right: 1%;
+        }
+        .button-3 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 51%;
+            right: 31%;
+        }
+        .button-4 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 59%;
+            right: 46%;
+        }
+        .button-5 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 60%;
+            right: 28%;
+        }
+        .button-6 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 59%;
+            left: 25%;
+        }
+        .button-7 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 42%;
+            right: 35%;
+        }
+        .button-8 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 38%;
+            right: 1%;
+        }
+        .button-9 {
+            color: black;
+            line-height: 1em;
+            font-size: 9px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 17%;
+        }
+
+        /* 子页面样式 */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .back-button {
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* 内容卡片样式 */
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .content-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .content-card h2 {
+            color: #4a6bff;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .content-card p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
+            
+            .nav-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 主页面 -->
+    <div id="main-page" class="page active">
+        <header>
+            <h1>零碳探索·绿色研学之旅</h1>
+        </header>
+        <div class="lines">
+            <button class="line-1" onclick="showLine('1')">
+                <span>海塘线：光大环保→海塘风车→滩涂光伏</span>
+            </button>
+            <button class="line-2" onclick="showLine('2')">
+                <span>丰山线：节水基地→雪水港村→雪水港邻里中心</span>
+            </button>
+            <button class="line-3" onclick="showLine('3')">
+                <span>核电线：秦山核电→核电科技→核能供暖</span>
+            </button>
+        </div>
+        <div class="nav-buttons">
+            <button class="button-1" onclick="showPage('page1')">
+                <img id="image1" src="image/picture1.jpg" alt="海塘风车" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">海塘风车<br>（风力发电）
+            </button>
+            <button class="button-2" onclick="showPage('page2')">
+                <img id="image2" src="image/picture2.jpg" alt="光大环保能源" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">光大环保能源<br>（分类垃圾处理）
+            </button>
+            <button class="button-3" onclick="showPage('page3')">
+                <img id="image3" src="image/picture3.jpg" alt="核电科技馆" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">核电科技馆<br>（核能宣传）
+            </button>
+            <button class="button-4" onclick="showPage('page4')">
+                <img id="image4" src="image/picture4.jpg" alt="雪水港村灶头" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">雪水港村灶头<br>（柴改电灶）
+            </button>
+            <button class="button-5" onclick="showPage('page5')">
+                <img id="image5" src="image/picture5.jpg" alt="秦山核电站" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">秦山核电站<br>（核能发电）
+            </button>
+            <button class="button-6" onclick="showPage('page6')">
+                <img id="image6" src="image/picture6.jpg" alt="雪水港邻里中心" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">雪水港邻里中心<br>（零碳屋）
+            </button>
+            <button class="button-7" onclick="showPage('page7')">
+                <img id="image7" src="image/picture7.jpg" alt="供暖小区" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">供暖小区<br>（核能供暖）
+            </button>
+            <button class="button-8" onclick="showPage('page8')">
+                <img id="image8" src="image/picture8.jpg" alt="滩涂光伏" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">滩涂光伏<br>（光伏发电）
+            </button>
+            <button class="button-9" onclick="showPage('page9')">
+                <img id="image9" src="image/picture9.jpg" alt="节水宣传教育基地" style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;object-fit: cover;">节水宣传教育基地<br>(长山河节水宣传点）
+            </button>
+        </div>
+        <svg id="dynamic-arc" width="420" height="500" viewBox="0 0 420 500">
+            <!-- 定义箭头标记（复用） -->
+            <defs>
+              <marker 
+                id="arrowhead" 
+                markerWidth="10" 
+                markerHeight="7" 
+                refX="9" 
+                refY="3.5" 
+                orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+              </marker>
+            </defs>
+          </svg>
+    </div>
+    
+    <!-- 子页面1: 海塘风车 -->
+    <div id="page1" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>海塘风车（风力发电）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture1.jpg" alt="中电工程" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">海盐风电场项目主要在东段海塘范围共安装了20台发电机组，单机容量2000千瓦风力，年发电量约为8640万千瓦时，年减少二氧化碳排放7.89万吨，减少二氧化碳排放573吨，减少氮氧化物排放229吨。项目主要利用风力带动风车叶片旋转，再通过增速机将旋转的速度提升，从而带动发电机发电，产生的电能经过变流器等设备进行转换和调节后，通过输电线路输送到电网供用户使用。本项目的建成有助于改善我县空气质量，促进生态平衡，增加了当地清洁能源的供应，减少了对传统能源的依赖，提高能源供应的稳定性和安全性。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县经济开发区杭州湾畔</p>
+                </div>
+        </div>
+    </div>
+    
+    <!-- 子页面2: 光大环保能源（分类垃圾处理） -->
+    <div id="page2" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>光大环保能源（分类垃圾处理）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture2.jpg" alt="光大环保" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">海盐光大环保能源项目总建筑面积约44280平方米，是目前国内环保工艺水平最高、环境排放标准最严的垃圾处理项目之一，内含4个子项目：分别为生活垃圾焚烧项目、生活垃圾应急填埋场项目、餐厨垃圾综合处理项目和厨余垃圾综合处理项目。其中垃圾焚烧项目日处理生活垃圾1200吨,渗滤液经处理实现“全回用、零排放”；生活垃圾应急填埋场项目设计采用了“柔性填埋场+上部钢结构厂房”建设方案；餐厨垃圾日处理餐厨垃圾75吨，采用“预处理+厌氧发酵”工艺技术；厨余垃圾综合处理项目，日处理厨余垃圾100吨。光大环保能源项目将生活垃圾和餐厨垃圾进行一体化综合处理，对整个垃圾处理行业都有较高的参考和研究价值。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县经济开发区棕榈路88号</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面3: 核电科技馆（核能宣传） -->
+    <div id="page3" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>核电科技馆（核能宣传）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture3.jpg" alt="核电科技馆" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">核电科技馆馆内总建筑面积约2.57万平方米，主要立足于爱国主义教育和普及核电知识，为核电产业可持续发展营造民意支持根基。馆内设中国核电之路、核电站探密、核安全与环保、核电站互动、核谐家园等13个展厅，配有多个影院、科普书吧、发布厅、学术报告厅，为公众提供舒适的科普体验环境和交流平台。核电科技馆是国内目前最大、公众体验最丰富的核电科技馆，是全国爱国主义教育示范基地、省级科普教育基地。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县秦山大道888号</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面4: 雪水港村灶头（柴改电灶） -->
+    <div id="page4" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>雪水港村灶头（柴改电灶）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture4.jpg" alt="雪水港村" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">雪水港村是浙江省全面小康建设示范村，分布式光伏比例显著提升，家门口的充电桩也让村民彻底告别了“里程焦虑”。其中全村476户农户全部用上了“电灶头”，一年可减少柴火消耗约8.6吨，减排硫氧化物0.36吨。“电灶头”项目的建成让雪水港县域零碳村落建设雏形初现，以碳排放的“碳值”和绿色能源利用的“绿值”为核心，为用户提供了差异化能效服务，让雪水港天更蓝、水更清。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县通元镇</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面5: 秦山核电站（核能发电） -->
+    <div id="page5" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>秦山核电站（核能发电）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture5.jpg" alt="秦山核电" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">秦山核电基地是中国核电起步的地方，1985年开工建设，1991年并网发电，共有9台运行机组，总装机容量666万千瓦，年发电量约520亿千瓦时，是目前我国核电机组数量最多、堆型最丰富的核电基地，被誉为“国之光荣”。40年来，秦山核电累计安全发电超8600亿千瓦时，相当于减排二氧化碳8亿吨，植树造林545个西湖景区。如今，中国核电迎来了安全高效的黄金时期，核电已成为中国能源结构调整和绿色低碳发展的重要力量。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县秦山街道</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面6: 雪水港邻里中心（零碳屋） -->
+    <div id="page6" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>雪水港邻里中心（零碳屋）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture6.jpg" alt="零碳屋" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">雪水港村邻里中心总建筑面积2266m²，集标准教室、多媒体，报告厅和数字展厅等多功能于一体。项目主要落实国家“双碳”目标和绿色建筑节能低碳要求，采用智能“风塔”、“竹筒复合墙”、光伏发电、能耗碳排双控监测系统等节能措施，建筑综合节能率67.14%，可再生能源利用率34.45%，获中国建筑节能协会认证，取得海盐首个“近零能耗建筑”标识，最终达到“零废水、零能耗、零废弃物”的理想状态，为乡村绿色低碳发展树立了典范，打造具有引领性的浙江省“低碳乡村旗舰店”。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县通元镇雪水港村</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面7: 供暖小区（核能供暖） -->
+    <div id="page7" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>供暖小区（核能供暖）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture7.jpg" alt="核能供热" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">核能供暖节能工程项目，主要是充分发挥核电机组零碳排放优势，利用核电机组反应堆剩余热功率进行供热，加热蒸汽取自秦山核电机组常规岛辅助蒸汽系统，热网循环水一次换热以及与用户侧回路的多重隔离换热后，以热水循环通往住户并通过暖气片进行散热，用清洁高效的核能供暖造福地方。目前海盐城区已有三个住宅小区和部分公建（如老年公寓）等实现了核能供暖，接下去将继续扩大供暖范围，开创我国南方地区核能供暖先河和示范，打造“江南核能供暖示范窗口”，助力双碳双控。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县武原街道</p>
+                </div>
+        </div>
+    </div>
+    
+    <!-- 子页面8: 滩涂光伏（光伏发电） -->
+    <div id="page8" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>滩涂光伏（光伏发电）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture8.jpg" alt="滩涂光伏" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">海盐码头滩涂光伏电站项目其海上光伏场区总利用海面积470亩，总装机容量为30MWp，主要利用滩涂地开发光伏发电，配套建设一座 110kV 升压站。项目于2023年12月19日带电投入使用，光伏区于2024年12月05日全容量投运。目前本项目年平均等效利用小时数为 1118h，年平均上网电量为3354.7万kW•h，每年减少标煤1.03万吨，减少CO2排放量3.34万吨，为海盐县的清洁能源与碳排放做出巨大贡献。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县海盐码头滩涂地</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- 子页面9: 节水宣传教育基地(长山河节水宣传点） -->
+    <div id="page9" class="page">
+        <header>
+            <button class="back-button" onclick="showPage('main-page')">←</button>
+            <h1>节水宣传教育基地(长山河节水宣传点）</h1>
+        </header>
+        
+        <div class="container">
+            <!DOCTYPE html>
+            <div class="container mx-auto p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8"></div>
+                <img src="image/picture9.jpg" alt="节水宣传教育基地" class="rounded-lg shadow-md mb-6">
+                <audio controls>
+                    <source src="music/music1.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+                <div class="text-center md:text-left mt-2">
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">海盐县节水宣传教育基地为省级节水宣传教育基地，室内展示区面积240平方米，包含“序厅、水之秘、水之情、水之韵、水之治、尾厅六大板块”，以水资源管理和节约用水为核心内容，并通过实物演示、沙盘展示及互动体验等方式，全面系统地展示了海盐基本水情、节水工作成效、普及节水理念，提升节水意识，使人民群众更加理解水资源的重要性，推动全社会形成认识水、关心水、亲近水、爱护水、节约水的良好风尚。</p>
+                    <p class="text-gray-700 leading-relaxed text-left" style="text-indent: 2em;">地址：浙江省嘉兴市海盐县通元镇长山河村村部</p>
+                </div>
+        </div>
+    </div>
+
+
+    <script>
+        function reset(){
+            const svg = document.getElementById("dynamic-arc");
+            const paths = svg.querySelectorAll('path');
+                paths.forEach(path => {
+                if (path.getAttribute('marker-end')) { // 或通过其他属性判断是否为弧线
+                    svg.removeChild(path);
+                }
+            });
+            document.getElementById("image1").style.border = 'none';      
+            document.getElementById("image2").style.border = 'none'; 
+            document.getElementById("image3").style.border = 'none'; 
+            document.getElementById("image4").style.border = 'none'; 
+            document.getElementById("image5").style.border = 'none'; 
+            document.getElementById("image6").style.border = 'none'; 
+            document.getElementById("image7").style.border = 'none'; 
+            document.getElementById("image8").style.border = 'none'; 
+            document.getElementById("image9").style.border = 'none'; 
+        }
+        
+        function showLine(lineNo) {
+            reset();
+            //点位高亮，点位间生成箭头弧线
+            const svg = document.getElementById("dynamic-arc");
+            if (lineNo == 1) {
+                const arcs = ['M370,60 Q320,60 330,120',//光大环保→海塘风车
+                    'M335,160 Q350,220 400,160'//海塘风车→滩涂光伏
+                ];
+                arcs.forEach((arc, index) => {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', arc);
+                    path.setAttribute('stroke', 'blue');
+                    path.setAttribute('stroke-width', '2');
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('marker-end', 'url(#arrowhead)');
+                    svg.appendChild(path);
+                });
+                document.getElementById("image1").style.border = '4px solid greenyellow';            
+                document.getElementById("image2").style.border = '4px solid greenyellow';
+                document.getElementById("image8").style.border = '4px solid greenyellow';
+            } else if(lineNo == 2) {
+                const arcs = ['M90,240 Q60,300 120,310',//节水基地→雪水港邻里中心
+                    'M145,295 Q170,260 195,290'//雪水港邻里中心→雪水港村灶头
+                ];
+                arcs.forEach((arc, index) => {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', arc);
+                    path.setAttribute('stroke', 'blue');
+                    path.setAttribute('stroke-width', '2');
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('marker-end', 'url(#arrowhead)');
+                    svg.appendChild(path);
+                });
+                document.getElementById("image4").style.border = '4px solid greenyellow';
+                document.getElementById("image6").style.border = '4px solid greenyellow';
+                document.getElementById("image9").style.border = '4px solid greenyellow';
+            } else {
+                const arcs = [
+                    'M300,320 Q330,310 288,250',//秦山核电→核电科技
+                    'M245,250 Q200,250 240,190'//核电科技→核能供暖
+                ];
+                arcs.forEach((arc, index) => {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', arc);
+                    path.setAttribute('stroke', 'blue');
+                    path.setAttribute('stroke-width', '2');
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('marker-end', 'url(#arrowhead)');
+                    svg.appendChild(path);
+                });
+                document.getElementById("image3").style.border = '4px solid greenyellow';            
+                document.getElementById("image5").style.border = '4px solid greenyellow';
+                document.getElementById("image7").style.border = '4px solid greenyellow';
+            }
+        }
+        
+        
+
+        function showPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // 显示选中的页面
+            document.getElementById(pageId).style.display = 'block';
+        }
+        
+        // 默认显示主页面
+        document.getElementById('main-page').style.display = 'block';
+    </script>
+</body>
+</html>
