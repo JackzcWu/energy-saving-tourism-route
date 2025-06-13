@@ -560,13 +560,13 @@
 
     <script>
         function reset(){
-            const svg = document.getElementById("dynamic-arc");
-            const paths = svg.querySelectorAll('path');
-                paths.forEach(path => {
-                if (path.getAttribute('marker-end')) { // 或通过其他属性判断是否为弧线
-                    svg.removeChild(path);
-                }
-            });
+            // const svg = document.getElementById("dynamic-arc");
+            // const paths = svg.querySelectorAll('path');
+            //     paths.forEach(path => {
+            //     if (path.getAttribute('marker-end')) { // 或通过其他属性判断是否为弧线
+            //         svg.removeChild(path);
+            //     }
+            // });
             document.getElementById("image1").style.border = 'none';      
             document.getElementById("image2").style.border = 'none'; 
             document.getElementById("image3").style.border = 'none'; 
@@ -581,53 +581,53 @@
         function showLine(lineNo) {
             reset();
             //点位高亮，点位间生成箭头弧线
-            const svg = document.getElementById("dynamic-arc");
+            // const svg = document.getElementById("dynamic-arc");
             if (lineNo == 1) {
-                const arcs = ['M370,60 Q320,60 330,120',//光大环保→海塘风车
-                    'M335,160 Q350,220 400,160'//海塘风车→滩涂光伏
-                ];
-                arcs.forEach((arc, index) => {
-                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path.setAttribute('d', arc);
-                    path.setAttribute('stroke', 'blue');
-                    path.setAttribute('stroke-width', '2');
-                    path.setAttribute('fill', 'none');
-                    path.setAttribute('marker-end', 'url(#arrowhead)');
-                    svg.appendChild(path);
-                });
+                // const arcs = ['M370,60 Q320,60 330,120',//光大环保→海塘风车
+                //     'M335,160 Q350,220 400,160'//海塘风车→滩涂光伏
+                // ];
+                // arcs.forEach((arc, index) => {
+                //     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                //     path.setAttribute('d', arc);
+                //     path.setAttribute('stroke', 'blue');
+                //     path.setAttribute('stroke-width', '2');
+                //     path.setAttribute('fill', 'none');
+                //     path.setAttribute('marker-end', 'url(#arrowhead)');
+                //     svg.appendChild(path);
+                // });
                 document.getElementById("image1").style.border = '4px solid greenyellow';            
                 document.getElementById("image2").style.border = '4px solid greenyellow';
                 document.getElementById("image8").style.border = '4px solid greenyellow';
             } else if(lineNo == 2) {
-                const arcs = ['M90,240 Q60,300 120,310',//节水基地→雪水港邻里中心
-                    'M145,330 Q165,370 195,330'//雪水港邻里中心→雪水港村灶头
-                ];
-                arcs.forEach((arc, index) => {
-                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path.setAttribute('d', arc);
-                    path.setAttribute('stroke', 'blue');
-                    path.setAttribute('stroke-width', '2');
-                    path.setAttribute('fill', 'none');
-                    path.setAttribute('marker-end', 'url(#arrowhead)');
-                    svg.appendChild(path);
-                });
+                // const arcs = ['M90,240 Q60,300 120,310',//节水基地→雪水港邻里中心
+                //     'M145,330 Q165,370 195,330'//雪水港邻里中心→雪水港村灶头
+                // ];
+                // arcs.forEach((arc, index) => {
+                //     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                //     path.setAttribute('d', arc);
+                //     path.setAttribute('stroke', 'blue');
+                //     path.setAttribute('stroke-width', '2');
+                //     path.setAttribute('fill', 'none');
+                //     path.setAttribute('marker-end', 'url(#arrowhead)');
+                //     svg.appendChild(path);
+                // });
                 document.getElementById("image4").style.border = '4px solid greenyellow';
                 document.getElementById("image6").style.border = '4px solid greenyellow';
                 document.getElementById("image9").style.border = '4px solid greenyellow';
             } else {
-                const arcs = [
-                    'M300,320 Q330,310 288,250',//秦山核电→核电科技
-                    'M245,250 Q200,250 240,190'//核电科技→核能供暖
-                ];
-                arcs.forEach((arc, index) => {
-                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path.setAttribute('d', arc);
-                    path.setAttribute('stroke', 'blue');
-                    path.setAttribute('stroke-width', '2');
-                    path.setAttribute('fill', 'none');
-                    path.setAttribute('marker-end', 'url(#arrowhead)');
-                    svg.appendChild(path);
-                });
+                // const arcs = [
+                //     'M300,320 Q330,310 288,250',//秦山核电→核电科技
+                //     'M245,250 Q200,250 240,190'//核电科技→核能供暖
+                // ];
+                // arcs.forEach((arc, index) => {
+                //     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                //     path.setAttribute('d', arc);
+                //     path.setAttribute('stroke', 'blue');
+                //     path.setAttribute('stroke-width', '2');
+                //     path.setAttribute('fill', 'none');
+                //     path.setAttribute('marker-end', 'url(#arrowhead)');
+                //     svg.appendChild(path);
+                // });
                 document.getElementById("image3").style.border = '4px solid greenyellow';            
                 document.getElementById("image5").style.border = '4px solid greenyellow';
                 document.getElementById("image7").style.border = '4px solid greenyellow';
